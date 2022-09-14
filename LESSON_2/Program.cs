@@ -18,6 +18,7 @@ namespace LESSON_2
                     new Organization("ООО 'ЗОЧЕМ'", 123456785, 7894623.7834m),
                     new Organization("ООО 'ЗАТЕМ'", 456456785, 7894623.7834m)
            };
+
             foreach (Client client in clientDataBase)
             {
                 client.PrintInfo();
@@ -30,10 +31,10 @@ namespace LESSON_2
     public abstract class Client
     {
         public abstract void PrintInfo();
+        public string Surname { get; set; }
     }
     public class Investor : Client
-    {
-        public string Surname { get; set; }
+    {       
         public decimal DepositAmount { get; set; }
         public double DepositInterest { get; set; }
 
@@ -51,8 +52,7 @@ namespace LESSON_2
         }
     }
     public class Creditor : Client
-    {
-        public string Surname { get; set; }
+    {  
         public decimal CreditAmount { get; set; }
         public double CreditInterest { get; set; }
         public decimal CreditBalance { get; set; }
@@ -65,7 +65,6 @@ namespace LESSON_2
             CreditInterest = creditInterest;
             CreditBalance = creditBalance;
         }
-
         public override void PrintInfo()
         {
             Console.WriteLine("Фамилия вкладчика: {0}", Surname);
@@ -75,21 +74,19 @@ namespace LESSON_2
         }
     }
     public class Organization : Client
-    {
-        public string Name { get; set; }
+    {     
         public int AccountNumber { get; set; }
         public decimal AccountAmount { get; set; }
 
-        public Organization(string name, int accountNumber, decimal accountAmount)
+        public Organization(string surname, int accountNumber, decimal accountAmount)
         {
-            Name = name;
+            Surname = surname;
             AccountNumber = accountNumber;
             AccountAmount = accountAmount;
         }
-
         public override void PrintInfo()
         {
-            Console.WriteLine("Название организации: {0}", Name);
+            Console.WriteLine("Название организации: {0}", Surname);
             Console.WriteLine("Номер счета: {0}", AccountNumber);
             Console.WriteLine("Сумма на счету: {0}", AccountAmount);
         }
