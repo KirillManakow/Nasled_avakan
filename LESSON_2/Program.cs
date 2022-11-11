@@ -12,11 +12,12 @@ namespace LESSON_2
             Client[] clientDataBase = new Client[]
            {
                     new Investor("Сорокин", 250178.597m, 20.15),
-                    new Investor("Манаков",  12178.867m, 18.75),
-                    new Creditor("Мухин",  121780.867m, 18.75, 120000),
-                    new Creditor("Орешкова",  12178.867m, 18.75, 578.89m),
-                    new Organization("ООО 'ЗОЧЕМ'", 123456785, 7894623.7834m),
-                    new Organization("ООО 'ЗАТЕМ'", 456456785, 7894623.7834m)
+                    new Investor("Манаков", 12178.867m, 18.75),
+                    new Investor("Власова", 50.50m,20),
+                    new Creditor("Мухин",  12178.867m, 18.75, 120000),
+                    new Creditor("Орешкова",  12178.867m, 18.75, 57.89m),
+                    new Organization("ООО'ЗОЧЕМ'", 123456785, 7894623.7834m),
+                    new Organization("ООО'ЗАТЕМ'", 456456785, 7894623.7834m)
            };
 
             foreach (Client client in clientDataBase)
@@ -67,7 +68,7 @@ namespace LESSON_2
         }
         public override void PrintInfo()
         {
-            Console.WriteLine("Фамилия вкладчика: {0}", Surname);
+            Console.WriteLine("Фамилия кредитора: {0}", Surname);
             Console.WriteLine("Размер кредита: {0}", CreditAmount);
             Console.WriteLine("Процент по кредиту: {0}", CreditInterest);
             Console.WriteLine("Остаток долга: {0}", CreditBalance);
